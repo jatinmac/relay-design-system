@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {
+      "name": "DesignSystemProvider",
+      "package": "@relay/react",
+      "source": "packages/react/src/provider/DesignSystemProvider.tsx",
+      "kind": "provider",
+      "layer": "universal",
+      "category": "foundation",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Establishes the brand theme, color mode, density, portal, and container-query boundary.",
+      "props": {
+        "type": "DesignSystemProviderProps",
+        "required": ["theme", "children"],
+        "allowed": ["theme", "colorMode", "density", "children"],
+        "nativeProps": false
+      },
+      "variants": {
+        "colorMode": ["light", "dark", "system"],
+        "density": ["comfortable", "compact"]
+      },
+      "slots": ["children"],
+      "composes": [],
+      "consumerOwns": [
+        "Loading the matching theme CSS",
+        "Persisting user preferences"
+      ],
+      "rules": [
+        "Place one provider above Relay components.",
+        "Use a loaded theme name; never branch component anatomy by brand."
+      ],
+      "example": "examples/provider-and-form.tsx"
+    },
+    {
+      "name": "Stack",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/Stack/Stack.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "layout",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Provides token-governed one-dimensional layout without product semantics.",
+      "props": {
+        "type": "StackProps",
+        "required": [],
+        "allowed": [
+          "as",
+          "direction",
+          "gap",
+          "align",
+          "justify",
+          "wrap",
+          "children",
+          "className"
+        ],
+        "nativeProps": "Props of the selected element except color and the fields owned above."
+      },
+      "variants": {
+        "direction": ["row", "column"],
+        "gap": ["none", "xs", "sm", "md", "lg", "xl"],
+        "align": ["start", "center", "end", "stretch", "baseline"],
+        "justify": ["start", "center", "end", "between", "around", "evenly"]
+      },
+      "slots": ["children"],
+      "composes": [],
+      "consumerOwns": [
+        "Semantic wrapper choice",
+        "Responsive page composition"
+      ],
+      "rules": [
+        "Use semantic elements through as when structure has meaning.",
+        "Use CSS Grid for two-dimensional layout."
+      ],
+      "example": "examples/provider-and-form.tsx"
+    },
+    {
+      "name": "Button",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/Button/Button.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "action",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Triggers a labeled action with intent-oriented variants and duplicate-activation protection.",
+      "props": {
+        "type": "ButtonProps",
+        "required": [],
+        "allowed": [
+          "variant",
+          "size",
+          "loading",
+          "disabled",
+          "leadingIcon",
+          "trailingIcon",
+          "children"
+        ],
+        "nativeProps": "Native button props except color; type defaults to button."
+      },
+      "variants": {
+        "variant": ["primary", "secondary", "critical", "quiet"],
+        "size": ["sm", "md", "lg"]
+      },
+      "slots": ["leadingIcon", "children", "trailingIcon"],
+      "composes": [],
+      "consumerOwns": ["Action execution", "Confirmation", "Pending state"],
+      "rules": [
+        "Use links for navigation.",
+        "Pass loading while the corresponding operation is pending."
+      ],
+      "example": "examples/provider-and-form.tsx"
+    },
+    {
+      "name": "IconButton",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/IconButton/IconButton.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "action",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Provides a compact icon-only action with a mandatory accessible name.",
+      "props": {
+        "type": "IconButtonProps",
+        "required": ["aria-label", "icon"],
+        "allowed": [
+          "aria-label",
+          "icon",
+          "variant",
+          "size",
+          "loading",
+          "disabled"
+        ],
+        "nativeProps": "ButtonProps except children and decorative icon slots."
+      },
+      "variants": {
+        "variant": ["primary", "secondary", "critical", "quiet"],
+        "size": ["sm", "md", "lg"]
+      },
+      "slots": ["icon"],
+      "composes": ["Button"],
+      "consumerOwns": [
+        "A concise action-oriented accessible label",
+        "Action execution"
+      ],
+      "rules": [
+        "Never omit aria-label.",
+        "Do not use IconButton merely to avoid accommodating a useful visible label."
+      ],
+      "example": "examples/provider-and-form.tsx"
+    },
+    {
+      "name": "FormField",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/FormField/FormField.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "form",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Connects a label, hint, error, and required state to one rendered control.",
+      "props": {
+        "type": "FormFieldProps",
+        "required": ["label", "children"],
+        "allowed": ["id", "label", "hint", "error", "required", "children"],
+        "nativeProps": false
+      },
+      "variants": {},
+      "slots": ["label", "hint", "error", "control render function"],
+      "composes": [],
+      "consumerOwns": [
+        "Control rendering",
+        "Value and validation state",
+        "Server-error mapping"
+      ],
+      "rules": [
+        "Apply every control prop returned by the render function.",
+        "Associate exactly one control with each FormField."
+      ],
+      "example": "examples/provider-and-form.tsx"
+    },
+    {
+      "name": "TextField",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/TextField/TextField.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "form",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Applies the FormField accessibility contract to a native text input.",
+      "props": {
+        "type": "TextFieldProps",
+        "required": ["label"],
+        "allowed": ["label", "hint", "error"],
+        "nativeProps": "Native input props except children, color, and size."
+      },
+      "variants": {},
+      "slots": ["label", "hint", "error"],
+      "composes": ["FormField"],
+      "consumerOwns": [
+        "Value state",
+        "Validation",
+        "Submission and formatting"
+      ],
+      "rules": [
+        "Do not use placeholder as the only label.",
+        "Use error for application or server validation messages."
+      ],
+      "example": "examples/provider-and-form.tsx"
+    },
+    {
+      "name": "Checkbox",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/Checkbox/Checkbox.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "form",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Captures independent binary or mixed selection with an accessible label.",
+      "props": {
+        "type": "CheckboxProps",
+        "required": ["label"],
+        "allowed": [
+          "label",
+          "description",
+          "indeterminate",
+          "readOnly",
+          "visuallyHiddenLabel",
+          "onCheckedChange"
+        ],
+        "nativeProps": "Native checkbox props except children, color, onChange, readOnly, and type."
+      },
+      "variants": {},
+      "slots": ["label", "description"],
+      "composes": [],
+      "consumerOwns": ["Checked state", "Group-level validation"],
+      "rules": [
+        "Use indeterminate only for mixed aggregate state.",
+        "Use radio controls for one choice from a mutually exclusive set."
+      ],
+      "example": "examples/provider-and-form.tsx"
+    },
+    {
+      "name": "Badge",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/Badge/Badge.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "feedback",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Labels status or category with semantic tone and visible text.",
+      "props": {
+        "type": "BadgeProps",
+        "required": [],
+        "allowed": ["tone", "icon", "children"],
+        "nativeProps": "Native span props except color."
+      },
+      "variants": {
+        "tone": ["neutral", "info", "success", "warning", "critical"]
+      },
+      "slots": ["icon", "children"],
+      "composes": [],
+      "consumerOwns": [
+        "Status wording",
+        "Live-region behavior for dynamic announcements"
+      ],
+      "rules": [
+        "Choose tone by meaning, not brand color.",
+        "Do not rely on color alone; include understandable text."
+      ],
+      "example": "examples/data-table.tsx"
+    },
+    {
+      "name": "StatePanel",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/StatePanel/StatePanel.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "feedback",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Explains collection loading, empty, no-results, error, and no-access states.",
+      "props": {
+        "type": "StatePanelProps",
+        "required": ["status", "title"],
+        "allowed": ["status", "title", "description", "action", "icon"],
+        "nativeProps": "Native div props except color and title."
+      },
+      "variants": {
+        "status": ["loading", "empty", "no-results", "error", "no-access"]
+      },
+      "slots": ["icon", "title", "description", "action"],
+      "composes": [],
+      "consumerOwns": [
+        "State classification",
+        "Recovery action",
+        "Error wording"
+      ],
+      "rules": [
+        "Distinguish empty data from filtered no-results.",
+        "Keep retry actions adjacent to the failed surface."
+      ],
+      "example": "examples/data-table.tsx"
+    },
+    {
+      "name": "Dialog",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/Dialog/Dialog.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "overlay",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Presents a focus-managed modal task with title, body, and optional footer.",
+      "props": {
+        "type": "DialogProps",
+        "required": ["isOpen", "onOpenChange", "title", "children"],
+        "allowed": [
+          "isOpen",
+          "onOpenChange",
+          "title",
+          "description",
+          "children",
+          "footer",
+          "size",
+          "dismissible",
+          "closeLabel",
+          "role",
+          "className"
+        ],
+        "nativeProps": false
+      },
+      "variants": {
+        "size": ["sm", "md", "lg"],
+        "role": ["dialog", "alertdialog"]
+      },
+      "slots": ["title", "description", "children", "footer"],
+      "composes": ["IconButton"],
+      "consumerOwns": ["Open state", "Task data", "Pending dismissal policy"],
+      "rules": [
+        "Keep isOpen controlled and restore focus to the trigger.",
+        "Use alertdialog only when immediate attention is required."
+      ],
+      "example": "examples/provider-and-form.tsx"
+    },
+    {
+      "name": "DataTable",
+      "package": "@relay/react",
+      "source": "packages/react/src/components/DataTable/DataTable.tsx",
+      "kind": "component",
+      "layer": "universal",
+      "category": "data-display",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Renders semantic tabular data across loading, error, empty, ready, refreshing, sorting, selection, actions, and overflow.",
+      "props": {
+        "type": "DataTableProps",
+        "required": ["ariaLabel", "columns", "collection", "getRowId"],
+        "allowed": [
+          "ariaLabel",
+          "columns",
+          "collection",
+          "getRowId",
+          "sort",
+          "onSortChange",
+          "renderActions",
+          "labels",
+          "className",
+          "selectionMode",
+          "selectedRowIds",
+          "onSelectionChange",
+          "getRowLabel"
+        ],
+        "nativeProps": false
+      },
+      "variants": {
+        "collection.status": ["loading", "error", "empty", "ready"],
+        "selectionMode": ["none", "multiple"]
+      },
+      "slots": ["column headers", "cells", "empty state", "row actions"],
+      "composes": ["Button", "Checkbox", "StatePanel"],
+      "consumerOwns": [
+        "Items and request state",
+        "Sorting",
+        "Selection",
+        "Row actions and labels"
+      ],
+      "rules": [
+        "Use the collection discriminated union; do not simulate states with unrelated booleans.",
+        "Provide getRowLabel whenever multiple selection is enabled."
+      ],
+      "example": "examples/data-table.tsx"
+    },
+    {
+      "name": "AccessManagementPage",
+      "package": "@relay/product-access",
+      "source": "packages/product-access/src/AccessManagementPage/AccessManagementPage.tsx",
+      "kind": "component",
+      "layer": "product",
+      "category": "access-management",
+      "status": "beta",
+      "since": "0.1.0",
+      "purpose": "Composes access-management anatomy, permissions, invitation, role changes, removal, sorting, and selection without owning API calls.",
+      "props": {
+        "type": "AccessManagementPageProps",
+        "required": [
+          "collection",
+          "permissions",
+          "selection",
+          "sort",
+          "inviteState",
+          "memberMutationState",
+          "onSelectionChange",
+          "onSortChange",
+          "onInviteMember",
+          "onChangeRole",
+          "onRemoveMember"
+        ],
+        "allowed": [
+          "collection",
+          "permissions",
+          "selection",
+          "sort",
+          "inviteState",
+          "memberMutationState",
+          "labels",
+          "onSelectionChange",
+          "onSortChange",
+          "onInviteMember",
+          "onChangeRole",
+          "onRemoveMember"
+        ],
+        "nativeProps": false
+      },
+      "variants": {
+        "collection.status": ["loading", "error", "empty", "ready"],
+        "inviteState.status": ["idle", "pending", "error"],
+        "memberMutationState.status": ["idle", "pending", "error"]
+      },
+      "slots": [],
+      "composes": [
+        "Badge",
+        "Button",
+        "DataTable",
+        "Dialog",
+        "IconButton",
+        "Stack",
+        "TextField"
+      ],
+      "consumerOwns": [
+        "HTTP and cache integration",
+        "Optimistic updates and rollback",
+        "Authorization",
+        "Controlled collection, selection, sorting, and mutations"
+      ],
+      "rules": [
+        "Map application/server state into the controlled props.",
+        "Never import API clients or authentication into @relay/product-access."
+      ],
+      "example": "examples/access-management.tsx"
+    }
+  ]
+}

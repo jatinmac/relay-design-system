@@ -1,0 +1,6 @@
+@layer components {
+  .root {
+    container-type: inline-size;
+    min-inline-size: 0;
+  }
+}

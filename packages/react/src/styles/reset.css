@@ -1,0 +1,39 @@
+@layer reset {
+  :where([data-ds-theme]),
+  :where(
+    [data-ds-theme] *,
+    [data-ds-theme] *::before,
+    [data-ds-theme] *::after
+  ) {
+    box-sizing: border-box;
+  }
+
+  :where(
+    [data-ds-theme] button,
+    [data-ds-theme] input,
+    [data-ds-theme] select,
+    [data-ds-theme] textarea
+  ) {
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+  }
+
+  :where([data-ds-theme] button, [data-ds-theme] input) {
+    margin: 0;
+  }
+
+  :where([data-ds-theme] button, [data-ds-theme] [role='button']) {
+    touch-action: manipulation;
+  }
+
+  :where([data-ds-theme] img, [data-ds-theme] picture, [data-ds-theme] svg) {
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  :where([data-ds-theme] table) {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+}

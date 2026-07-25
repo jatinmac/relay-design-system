@@ -1,0 +1,47 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "space": {
+    "$type": "dimension",
+    "control": {
+      "inline": {
+        "$value": "{primitive.space.4}"
+      },
+      "block": {
+        "$value": "{primitive.space.3}"
+      }
+    },
+    "component": {
+      "gap": {
+        "$value": "{primitive.space.3}"
+      },
+      "section": {
+        "$value": "{primitive.space.6}"
+      }
+    }
+  },
+  "size": {
+    "$type": "dimension",
+    "control": {
+      "sm": {
+        "$value": "{primitive.size.9}"
+      },
+      "md": {
+        "$value": "{primitive.size.10}"
+      },
+      "lg": {
+        "$value": "{primitive.size.12}"
+      }
+    },
+    "icon": {
+      "sm": {
+        "$value": "{primitive.size.iconSm}"
+      },
+      "md": {
+        "$value": "{primitive.size.iconMd}"
+      },
+      "lg": {
+        "$value": "{primitive.size.iconLg}"
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@layer components {
+  .root {
+    display: flex;
+    min-inline-size: 0;
+  }
+
+  .row {
+    flex-direction: row;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+
+  .gap-none {
+    gap: var(--ds-space-layout-none);
+  }
+
+  .gap-xs {
+    gap: var(--ds-space-layout-xs);
+  }
+
+  .gap-sm {
+    gap: var(--ds-space-layout-sm);
+  }
+
+  .gap-md {
+    gap: var(--ds-space-layout-md);
+  }
+
+  .gap-lg {
+    gap: var(--ds-space-layout-lg);
+  }
+
+  .gap-xl {
+    gap: var(--ds-space-layout-xl);
+  }
+
+  .align-start {
+    align-items: flex-start;
+  }
+
+  .align-center {
+    align-items: center;
+  }
+
+  .align-end {
+    align-items: flex-end;
+  }
+
+  .align-stretch {
+    align-items: stretch;
+  }
+
+  .align-baseline {
+    align-items: baseline;
+  }
+
+  .justify-start {
+    justify-content: flex-start;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .justify-end {
+    justify-content: flex-end;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .justify-around {
+    justify-content: space-around;
+  }
+
+  .justify-evenly {
+    justify-content: space-evenly;
+  }
+
+  .wrap {
+    flex-wrap: wrap;
+  }
+}

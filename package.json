@@ -1,0 +1,43 @@
+{
+  "name": "relay-design-system",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Relay brand-neutral React design system monorepo",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@10.26.1",
+  "engines": {
+    "node": ">=22.12.0",
+    "pnpm": ">=10.26.0 <11"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "changeset": "changeset",
+    "changeset:status": "changeset status",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "knowledge:build": "pnpm --filter @relay/knowledge build",
+    "knowledge:check": "pnpm --filter @relay/knowledge check",
+    "lint": "eslint .",
+    "reference": "pnpm --filter @relay/reference-app dev",
+    "storybook": "pnpm --filter @relay/storybook storybook",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e",
+    "test:storybook": "pnpm --filter @relay/storybook test:storybook",
+    "tokens:build": "turbo run build --filter=@relay/theme-relay --filter=@relay/theme-northstar",
+    "tokens:check": "pnpm --filter @relay/tokens check",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "@changesets/cli": "2.31.1",
+    "@eslint/js": "10.0.1",
+    "eslint": "10.7.0",
+    "globals": "17.7.0",
+    "prettier": "3.9.6",
+    "turbo": "2.10.6",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.65.0",
+    "vite": "8.1.5",
+    "vitest": "4.1.10"
+  }
+}

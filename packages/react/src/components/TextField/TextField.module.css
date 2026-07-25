@@ -1,0 +1,49 @@
+@layer components {
+  .input {
+    background: var(--ds-color-input-background-default);
+    border-color: var(--ds-color-input-border-default);
+    border-radius: var(--ds-radius-control);
+    border-style: solid;
+    border-width: var(--ds-border-width-default);
+    block-size: var(--ds-size-control-md);
+    color: var(--ds-color-input-text);
+    font-family: var(--ds-font-family-body);
+    font-size: var(--ds-font-size-body-md);
+    inline-size: 100%;
+    min-inline-size: 0;
+    padding-inline: var(--ds-space-control-inline);
+    transition:
+      background-color var(--ds-motion-duration-fast)
+        var(--ds-motion-easing-standard),
+      border-color var(--ds-motion-duration-fast)
+        var(--ds-motion-easing-standard);
+  }
+
+  .input::placeholder {
+    color: var(--ds-color-input-placeholder);
+  }
+
+  .input:hover:not(:disabled, :read-only) {
+    border-color: var(--ds-color-input-border-hover);
+  }
+
+  .input:focus {
+    border-color: var(--ds-color-input-border-focus);
+  }
+
+  .input[aria-invalid='true'] {
+    border-color: var(--ds-color-input-border-invalid);
+  }
+
+  .input:disabled {
+    background: var(--ds-color-input-background-disabled);
+    border-color: var(--ds-color-input-border-disabled);
+    color: var(--ds-color-text-disabled);
+    cursor: not-allowed;
+  }
+
+  .input:read-only:not(:disabled) {
+    background: var(--ds-color-background-subtle);
+    cursor: default;
+  }
+}

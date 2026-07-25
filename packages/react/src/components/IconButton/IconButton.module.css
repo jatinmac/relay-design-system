@@ -1,0 +1,22 @@
+@layer components {
+  .root {
+    aspect-ratio: 1;
+    flex: none;
+    padding-inline: var(--ds-space-layout-none);
+  }
+
+  .icon {
+    align-items: center;
+    block-size: var(--ds-size-icon-md);
+    display: inline-flex;
+    font-size: var(--ds-font-size-body-lg);
+    inline-size: var(--ds-size-icon-md);
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .icon > svg {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+}

@@ -1,0 +1,105 @@
+@layer components {
+  .root {
+    align-items: center;
+    background: var(--ds-color-background-subtle);
+    border-color: var(--ds-color-border-default);
+    border-radius: var(--ds-radius-surface);
+    border-style: solid;
+    border-width: var(--ds-border-width-default);
+    box-shadow: var(--ds-shadow-surface);
+    color: var(--ds-color-text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-space-component-gap);
+    inline-size: 100%;
+    justify-content: center;
+    min-block-size: calc(var(--ds-size-control-lg) * 3);
+    padding: var(--ds-space-component-section);
+    text-align: center;
+  }
+
+  .error {
+    background: var(--ds-color-status-critical-background);
+    border-color: var(--ds-color-status-critical-border);
+    color: var(--ds-color-status-critical-text);
+  }
+
+  .no-access {
+    background: var(--ds-color-status-warning-background);
+    border-color: var(--ds-color-status-warning-border);
+    color: var(--ds-color-status-warning-text);
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-space-layout-xs);
+    max-inline-size: calc(var(--ds-space-layout-2xl) * 10);
+    min-inline-size: 0;
+  }
+
+  .title {
+    font-size: var(--ds-font-size-heading-sm);
+    font-weight: var(--ds-font-weight-semibold);
+    line-height: var(--ds-font-line-height-heading);
+    overflow-wrap: anywhere;
+  }
+
+  .description {
+    color: var(--ds-color-text-secondary);
+    font-size: var(--ds-font-size-body-md);
+    line-height: var(--ds-font-line-height-relaxed);
+    overflow-wrap: anywhere;
+  }
+
+  .error .description,
+  .no-access .description {
+    color: currentcolor;
+  }
+
+  .icon,
+  .spinner {
+    block-size: var(--ds-size-icon-lg);
+    flex: none;
+    inline-size: var(--ds-size-icon-lg);
+  }
+
+  .icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .icon > svg {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  .spinner {
+    animation: state-panel-spin var(--ds-motion-duration-slow)
+      var(--ds-motion-easing-standard) infinite;
+    border-color: var(--ds-color-border-default);
+    border-inline-end-color: var(--ds-color-action-primary-background-default);
+    border-radius: var(--ds-radius-pill);
+    border-style: solid;
+    border-width: var(--ds-border-width-strong);
+  }
+
+  .action {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  @keyframes state-panel-spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spinner {
+      animation: none;
+    }
+  }
+}

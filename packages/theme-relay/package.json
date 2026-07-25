@@ -1,0 +1,23 @@
+{
+  "name": "@relay/theme-relay",
+  "version": "0.0.0",
+  "description": "Primary Relay brand implementation of the semantic token contract",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./theme.css": "./dist/theme.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "relay-tokens build-theme relay",
+    "test": "relay-tokens validate-theme relay"
+  },
+  "devDependencies": {
+    "@relay/tokens": "workspace:*"
+  }
+}

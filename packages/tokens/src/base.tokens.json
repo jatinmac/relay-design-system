@@ -1,0 +1,31 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "breakpoint": {
+    "$type": "dimension",
+    "$description": "Page-layout viewport thresholds. Components use container queries.",
+    "sm": {
+      "$value": {
+        "value": 30,
+        "unit": "rem"
+      }
+    },
+    "md": {
+      "$value": {
+        "value": 48,
+        "unit": "rem"
+      }
+    },
+    "lg": {
+      "$value": {
+        "value": 64,
+        "unit": "rem"
+      }
+    },
+    "xl": {
+      "$value": {
+        "value": 80,
+        "unit": "rem"
+      }
+    }
+  }
+}

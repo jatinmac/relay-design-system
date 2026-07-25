@@ -1,0 +1,63 @@
+@layer base {
+  :where([data-ds-theme]) {
+    background-color: var(--ds-color-background-canvas);
+    color: var(--ds-color-text-primary);
+    font-family: var(--ds-font-family-body);
+    font-size: var(--ds-font-size-body-md);
+    line-height: var(--ds-font-line-height-body);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  :where([data-ds-theme][data-ds-color-mode='light']) {
+    color-scheme: light;
+  }
+
+  :where([data-ds-theme][data-ds-color-mode='dark']) {
+    color-scheme: dark;
+  }
+
+  :where(
+    [data-ds-theme][data-ds-color-mode='system'],
+    [data-ds-theme]:not([data-ds-color-mode])
+  ) {
+    color-scheme: light dark;
+  }
+
+  :where([data-ds-theme] h1, [data-ds-theme] h2, [data-ds-theme] h3) {
+    color: var(--ds-color-text-primary);
+    font-family: var(--ds-font-family-display);
+    line-height: var(--ds-font-line-height-heading);
+    margin-block: 0;
+  }
+
+  :where([data-ds-theme] p) {
+    margin-block: 0;
+  }
+
+  :where([data-ds-theme] a) {
+    color: var(--ds-color-text-link);
+    text-decoration-thickness: var(--ds-border-width-default);
+    text-underline-offset: var(--ds-space-layout-xs);
+  }
+
+  :where([data-ds-theme] :focus-visible) {
+    outline-color: var(--ds-color-border-focus);
+    outline-offset: var(--ds-space-layout-xs);
+    outline-style: solid;
+    outline-width: var(--ds-border-width-focus);
+  }
+
+  :where([data-ds-theme] ::selection) {
+    background-color: var(--ds-color-selection-background);
+    color: var(--ds-color-text-primary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where([data-ds-theme]) {
+      scroll-behavior: auto;
+    }
+  }
+}

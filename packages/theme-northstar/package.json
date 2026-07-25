@@ -1,0 +1,23 @@
+{
+  "name": "@relay/theme-northstar",
+  "version": "0.0.0",
+  "description": "Northstar validation brand implementation of the semantic token contract",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./theme.css": "./dist/theme.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "relay-tokens build-theme northstar",
+    "test": "relay-tokens validate-theme northstar"
+  },
+  "devDependencies": {
+    "@relay/tokens": "workspace:*"
+  }
+}

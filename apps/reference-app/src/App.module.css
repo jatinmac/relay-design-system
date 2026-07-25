@@ -1,0 +1,182 @@
+.shell {
+  background: var(--ds-color-background-canvas);
+  color: var(--ds-color-text-primary);
+  display: grid;
+  grid-template-columns:
+    calc(var(--ds-space-layout-2xl) * 6)
+    minmax(0, 1fr);
+  min-block-size: 100vh;
+}
+
+.skipLink {
+  background: var(--ds-color-background-elevated);
+  border-radius: var(--ds-radius-control);
+  color: var(--ds-color-text-link);
+  inset-block-start: var(--ds-space-layout-sm);
+  inset-inline-start: var(--ds-space-layout-sm);
+  padding: var(--ds-space-control-inline);
+  position: fixed;
+  transform: translateY(-200%);
+  z-index: 10;
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+}
+
+.controlPanel {
+  align-self: start;
+  background: var(--ds-color-background-surface);
+  border-inline-end-color: var(--ds-color-border-default);
+  border-inline-end-style: solid;
+  border-inline-end-width: var(--ds-border-width-default);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-component-section);
+  min-block-size: 100vh;
+  padding: var(--ds-space-layout-lg);
+  position: sticky;
+  inset-block-start: 0;
+}
+
+.eyebrow {
+  color: var(--ds-color-text-secondary);
+  font-size: var(--ds-font-size-label-sm);
+  font-weight: var(--ds-font-weight-semibold);
+  margin: var(--ds-space-layout-none);
+  text-transform: uppercase;
+}
+
+.controlTitle {
+  font-family: var(--ds-font-family-display);
+  font-size: var(--ds-font-size-heading-md);
+  line-height: var(--ds-font-line-height-heading);
+  margin-block: var(--ds-space-layout-xs) var(--ds-space-layout-none);
+}
+
+.controlField,
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-layout-xs);
+}
+
+.controlField,
+.controlGroup legend {
+  font-size: var(--ds-font-size-label-md);
+  font-weight: var(--ds-font-weight-medium);
+}
+
+.controlField select,
+.controlGroup {
+  background: var(--ds-color-input-background-default);
+  border-color: var(--ds-color-input-border-default);
+  border-radius: var(--ds-radius-control);
+  border-style: solid;
+  border-width: var(--ds-border-width-default);
+  color: var(--ds-color-input-text);
+}
+
+.controlField select {
+  block-size: var(--ds-size-control-md);
+  padding-inline: var(--ds-space-control-inline);
+}
+
+.controlGroup {
+  margin: var(--ds-space-layout-none);
+  padding: var(--ds-space-control-inline);
+}
+
+.controlGroup label {
+  align-items: center;
+  display: flex;
+  font-size: var(--ds-font-size-body-sm);
+  gap: var(--ds-space-layout-sm);
+}
+
+.scenarioDescription,
+.boundaryNote {
+  color: var(--ds-color-text-secondary);
+  font-size: var(--ds-font-size-body-sm);
+  line-height: var(--ds-font-line-height-relaxed);
+}
+
+.scenarioDescription {
+  margin: calc(var(--ds-space-component-section) * -1)
+    var(--ds-space-layout-none) var(--ds-space-layout-none);
+}
+
+.boundaryNote {
+  background: var(--ds-color-background-subtle);
+  border-color: var(--ds-color-border-default);
+  border-radius: var(--ds-radius-surface);
+  border-style: solid;
+  border-width: var(--ds-border-width-default);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-layout-xs);
+  padding: var(--ds-space-control-inline);
+}
+
+.main {
+  min-inline-size: 0;
+  padding: var(--ds-space-layout-xl);
+}
+
+.integrationBar {
+  align-items: center;
+  background: var(--ds-color-background-subtle);
+  border-color: var(--ds-color-border-default);
+  border-radius: var(--ds-radius-surface);
+  border-style: solid;
+  border-width: var(--ds-border-width-default);
+  color: var(--ds-color-text-secondary);
+  display: flex;
+  font-size: var(--ds-font-size-body-sm);
+  gap: var(--ds-space-component-gap);
+  justify-content: space-between;
+  padding: var(--ds-space-control-inline);
+}
+
+@media (max-width: 64rem) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .controlPanel {
+    border-block-end-color: var(--ds-color-border-default);
+    border-block-end-style: solid;
+    border-block-end-width: var(--ds-border-width-default);
+    border-inline-end-width: 0;
+    min-block-size: auto;
+    position: static;
+  }
+
+  .main {
+    padding: var(--ds-space-layout-lg);
+  }
+}
+
+@media (min-width: 30rem) and (max-width: 64rem) {
+  .controlPanel {
+    align-items: start;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .boundaryNote {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 30rem) {
+  .controlPanel,
+  .main {
+    padding: var(--ds-space-layout-md);
+  }
+
+  .integrationBar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

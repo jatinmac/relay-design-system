@@ -1,0 +1,141 @@
+@layer components {
+  .root {
+    align-items: flex-start;
+    color: var(--ds-color-text-primary);
+    display: inline-flex;
+    gap: var(--ds-space-component-gap);
+    max-inline-size: 100%;
+  }
+
+  .root[data-disabled] {
+    color: var(--ds-color-text-disabled);
+    cursor: not-allowed;
+    opacity: var(--ds-opacity-disabled);
+  }
+
+  .root[data-read-only]:not([data-disabled]) {
+    cursor: default;
+  }
+
+  .controlWrapper {
+    block-size: var(--ds-size-icon-md);
+    flex: none;
+    inline-size: var(--ds-size-icon-md);
+    position: relative;
+  }
+
+  .input {
+    block-size: 100%;
+    cursor: pointer;
+    inline-size: 100%;
+    inset: 0;
+    margin: var(--ds-space-layout-none);
+    opacity: 0;
+    position: absolute;
+  }
+
+  .root[data-disabled] .input,
+  .root[data-read-only] .input {
+    cursor: inherit;
+  }
+
+  .control {
+    align-items: center;
+    background: var(--ds-color-input-background-default);
+    border-color: var(--ds-color-input-border-default);
+    border-radius: calc(var(--ds-radius-control) / 2);
+    border-style: solid;
+    border-width: var(--ds-border-width-default);
+    block-size: 100%;
+    color: var(--ds-color-selection-indicator);
+    display: flex;
+    inline-size: 100%;
+    justify-content: center;
+    pointer-events: none;
+    transition:
+      background-color var(--ds-motion-duration-fast)
+        var(--ds-motion-easing-standard),
+      border-color var(--ds-motion-duration-fast)
+        var(--ds-motion-easing-standard);
+  }
+
+  .input:hover:not(:disabled) + .control {
+    border-color: var(--ds-color-input-border-hover);
+  }
+
+  .input:focus-visible + .control {
+    outline: var(--ds-border-width-focus) solid var(--ds-color-border-focus);
+    outline-offset: var(--ds-border-width-default);
+  }
+
+  .input:checked + .control,
+  .root[data-indeterminate] .control {
+    background: var(--ds-color-selection-background);
+    border-color: var(--ds-color-selection-background);
+  }
+
+  .checkmark,
+  .mixed {
+    block-size: var(--ds-size-icon-sm);
+    fill: none;
+    inline-size: var(--ds-size-icon-sm);
+    position: absolute;
+    stroke: currentcolor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: var(--ds-border-width-strong);
+  }
+
+  .checkmark,
+  .mixed {
+    visibility: hidden;
+  }
+
+  .input:checked + .control .checkmark {
+    visibility: visible;
+  }
+
+  .root[data-indeterminate] .checkmark {
+    visibility: hidden;
+  }
+
+  .root[data-indeterminate] .mixed {
+    visibility: visible;
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-space-layout-xs);
+    min-inline-size: 0;
+  }
+
+  .visuallyHiddenCopy {
+    block-size: var(--ds-border-width-default);
+    clip-path: inset(50%);
+    inline-size: var(--ds-border-width-default);
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  .label {
+    cursor: pointer;
+    font-size: var(--ds-font-size-label-md);
+    font-weight: var(--ds-font-weight-medium);
+    line-height: var(--ds-font-line-height-body);
+    overflow-wrap: anywhere;
+  }
+
+  .root[data-disabled] .label,
+  .root[data-read-only] .label {
+    cursor: inherit;
+  }
+
+  .description {
+    color: var(--ds-color-text-secondary);
+    font-size: var(--ds-font-size-body-sm);
+    line-height: var(--ds-font-line-height-body);
+    overflow-wrap: anywhere;
+  }
+}

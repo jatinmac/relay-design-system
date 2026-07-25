@@ -1,0 +1,66 @@
+@layer components {
+  .root {
+    align-items: center;
+    border-radius: var(--ds-radius-pill);
+    border-style: solid;
+    border-width: var(--ds-border-width-default);
+    display: inline-flex;
+    font-size: var(--ds-font-size-label-sm);
+    font-weight: var(--ds-font-weight-semibold);
+    gap: var(--ds-space-layout-xs);
+    line-height: var(--ds-font-line-height-body);
+    max-inline-size: 100%;
+    padding-block: calc(var(--ds-space-layout-xs) / 2);
+    padding-inline: var(--ds-space-layout-sm);
+    white-space: nowrap;
+  }
+
+  .neutral {
+    background: var(--ds-color-background-subtle);
+    border-color: var(--ds-color-border-default);
+    color: var(--ds-color-text-secondary);
+  }
+
+  .info {
+    background: var(--ds-color-status-info-background);
+    border-color: var(--ds-color-status-info-border);
+    color: var(--ds-color-status-info-text);
+  }
+
+  .success {
+    background: var(--ds-color-status-success-background);
+    border-color: var(--ds-color-status-success-border);
+    color: var(--ds-color-status-success-text);
+  }
+
+  .warning {
+    background: var(--ds-color-status-warning-background);
+    border-color: var(--ds-color-status-warning-border);
+    color: var(--ds-color-status-warning-text);
+  }
+
+  .critical {
+    background: var(--ds-color-status-critical-background);
+    border-color: var(--ds-color-status-critical-border);
+    color: var(--ds-color-status-critical-text);
+  }
+
+  .icon {
+    align-items: center;
+    block-size: var(--ds-size-icon-sm);
+    display: inline-flex;
+    flex: none;
+    inline-size: var(--ds-size-icon-sm);
+    justify-content: center;
+  }
+
+  .icon > svg {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  .content {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+}

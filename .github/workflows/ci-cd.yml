@@ -1,0 +1,141 @@
+name: CI/CD
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    name: Quality gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22.17.1
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browser
+        run: pnpm --filter @relay/storybook exec playwright install --with-deps chromium
+
+      - name: Generate token artifacts
+        run: pnpm tokens:build
+
+      - name: Reject generated artifact drift
+        run: git diff --exit-code
+
+      - name: Validate generated contracts
+        run: |
+          pnpm tokens:check
+          pnpm knowledge:check
+
+      - name: Check formatting
+        run: pnpm format:check
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Run unit, interaction, and accessibility tests
+        run: pnpm test
+
+      - name: Run Playwright workflows
+        run: pnpm test:e2e
+
+      - name: Build packages and applications
+        run: pnpm build
+
+      - name: Validate Changesets
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            pnpm changeset status --since=origin/main
+          else
+            pnpm changeset:status
+          fi
+
+      - name: Upload Storybook for GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: apps/storybook/storybook-static
+
+  deploy-storybook:
+    name: Deploy Storybook
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy GitHub Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  release:
+    name: Prepare release
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22.17.1
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create or update the release pull request
+        uses: changesets/action@v1
+        with:
+          version: pnpm changeset version
+          title: 'chore(release): version packages'
+          commit: 'chore(release): version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

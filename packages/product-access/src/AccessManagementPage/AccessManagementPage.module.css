@@ -1,0 +1,158 @@
+@layer components {
+  .root {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-space-component-section);
+    min-inline-size: 0;
+  }
+
+  .header {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--ds-space-component-section);
+    justify-content: space-between;
+  }
+
+  .headingGroup,
+  .memberIdentity {
+    display: flex;
+    flex-direction: column;
+    min-inline-size: 0;
+  }
+
+  .headingGroup {
+    gap: var(--ds-space-layout-xs);
+  }
+
+  .title {
+    font-family: var(--ds-font-family-display);
+    font-size: var(--ds-font-size-heading-lg);
+    font-weight: var(--ds-font-weight-bold);
+    line-height: var(--ds-font-line-height-heading);
+    margin: var(--ds-space-layout-none);
+    overflow-wrap: anywhere;
+  }
+
+  .description,
+  .memberIdentity > span {
+    color: var(--ds-color-text-secondary);
+  }
+
+  .description {
+    font-size: var(--ds-font-size-body-lg);
+    line-height: var(--ds-font-line-height-relaxed);
+    margin: var(--ds-space-layout-none);
+    overflow-wrap: anywhere;
+  }
+
+  .permissionNotice,
+  .mutationError,
+  .mutationPending,
+  .selectionBar {
+    border-radius: var(--ds-radius-surface);
+    border-style: solid;
+    border-width: var(--ds-border-width-default);
+    padding: var(--ds-space-control-inline);
+  }
+
+  .permissionNotice {
+    background: var(--ds-color-status-warning-background);
+    border-color: var(--ds-color-status-warning-border);
+    color: var(--ds-color-status-warning-text);
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-space-layout-xs);
+  }
+
+  .mutationError {
+    background: var(--ds-color-status-critical-background);
+    border-color: var(--ds-color-status-critical-border);
+    color: var(--ds-color-status-critical-text);
+  }
+
+  .mutationPending {
+    background: var(--ds-color-status-info-background);
+    border-color: var(--ds-color-status-info-border);
+    color: var(--ds-color-status-info-text);
+  }
+
+  .selectionBar {
+    align-items: center;
+    background: var(--ds-color-selection-background);
+    border-color: var(--ds-color-border-default);
+    display: flex;
+    font-weight: var(--ds-font-weight-medium);
+    gap: var(--ds-space-component-gap);
+    justify-content: space-between;
+  }
+
+  .memberIdentity {
+    gap: var(--ds-space-layout-xs);
+    max-inline-size: calc(var(--ds-space-layout-2xl) * 6);
+    overflow-wrap: anywhere;
+  }
+
+  .memberActions {
+    min-inline-size: max-content;
+  }
+
+  .roleSelect {
+    background: var(--ds-color-input-background-default);
+    border-color: var(--ds-color-input-border-default);
+    border-radius: var(--ds-radius-control);
+    border-style: solid;
+    border-width: var(--ds-border-width-default);
+    block-size: var(--ds-size-control-sm);
+    color: var(--ds-color-input-text);
+    font-family: var(--ds-font-family-body);
+    font-size: var(--ds-font-size-label-sm);
+    max-inline-size: calc(var(--ds-space-layout-2xl) * 3);
+    padding-inline: var(--ds-space-control-inline);
+  }
+
+  .roleSelect:hover:not(:disabled) {
+    border-color: var(--ds-color-input-border-hover);
+  }
+
+  .roleSelect:disabled {
+    background: var(--ds-color-input-background-disabled);
+    border-color: var(--ds-color-input-border-disabled);
+    color: var(--ds-color-text-disabled);
+    cursor: not-allowed;
+  }
+
+  .inviteForm,
+  .fieldLabel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inviteForm {
+    gap: var(--ds-space-component-section);
+  }
+
+  .fieldLabel {
+    color: var(--ds-color-text-primary);
+    font-size: var(--ds-font-size-label-md);
+    font-weight: var(--ds-font-weight-medium);
+    gap: var(--ds-space-layout-xs);
+  }
+
+  .inviteForm .roleSelect {
+    block-size: var(--ds-size-control-md);
+    font-size: var(--ds-font-size-body-md);
+    max-inline-size: none;
+  }
+
+  @container (inline-size < 48rem) {
+    .header {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .header > :last-child {
+      align-self: flex-start;
+    }
+  }
+}

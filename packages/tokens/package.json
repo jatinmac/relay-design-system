@@ -1,0 +1,37 @@
+{
+  "name": "@relay/tokens",
+  "version": "0.0.0",
+  "description": "Relay token contracts, generation, and validation",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "relay-tokens": "./scripts/cli.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "files": [
+    "dist",
+    "scripts"
+  ],
+  "scripts": {
+    "build": "pnpm run generate && tsc -p tsconfig.build.json",
+    "check": "node scripts/cli.mjs check",
+    "generate": "node scripts/cli.mjs build-contract",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "style-dictionary": "5.5.0"
+  },
+  "devDependencies": {
+    "@relay/tooling": "workspace:*",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
+  }
+}

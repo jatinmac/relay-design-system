@@ -1,0 +1,36 @@
+{
+  "name": "@relay/knowledge",
+  "version": "0.0.0",
+  "description": "Generated AI-readable Relay contracts and examples",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./ai-usage": "./dist/AI_USAGE.md",
+    "./components.json": "./dist/components.json",
+    "./constraints": "./dist/constraints.md",
+    "./examples/*": "./dist/examples/*",
+    "./patterns.json": "./dist/patterns.json",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node scripts/generate.mjs build",
+    "check": "node scripts/generate.mjs check",
+    "test": "node scripts/generate.mjs check",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@relay/product-access": "workspace:*",
+    "@relay/react": "workspace:*",
+    "@relay/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@relay/tooling": "workspace:*",
+    "@types/react": "19.2.17",
+    "react": "19.2.8",
+    "typescript": "6.0.3"
+  }
+}

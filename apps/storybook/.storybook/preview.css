@@ -1,0 +1,12 @@
+.story-canvas {
+  background: var(--ds-color-background-canvas);
+  color: var(--ds-color-text-primary);
+  min-block-size: 100vh;
+  padding: var(--ds-space-layout-lg);
+}
+
+@media (max-width: 40rem) {
+  .story-canvas {
+    padding: var(--ds-space-layout-md);
+  }
+}

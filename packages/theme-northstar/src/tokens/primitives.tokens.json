@@ -1,0 +1,231 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "primitive": {
+    "color": {
+      "$type": "color",
+      "violet": {
+        "50": {
+          "$value": { "colorSpace": "hsl", "components": [270, 100, 98] }
+        },
+        "100": {
+          "$value": { "colorSpace": "hsl", "components": [269, 100, 95] }
+        },
+        "500": {
+          "$value": { "colorSpace": "hsl", "components": [271, 81, 56] }
+        },
+        "600": {
+          "$value": { "colorSpace": "hsl", "components": [271, 72, 47] }
+        },
+        "700": {
+          "$value": { "colorSpace": "hsl", "components": [270, 70, 39] }
+        },
+        "800": {
+          "$value": { "colorSpace": "hsl", "components": [269, 66, 32] }
+        }
+      },
+      "neutral": {
+        "0": { "$value": { "colorSpace": "hsl", "components": [0, 0, 100] } },
+        "25": { "$value": { "colorSpace": "hsl", "components": [42, 50, 98] } },
+        "50": { "$value": { "colorSpace": "hsl", "components": [40, 30, 96] } },
+        "100": {
+          "$value": { "colorSpace": "hsl", "components": [38, 22, 91] }
+        },
+        "200": {
+          "$value": { "colorSpace": "hsl", "components": [35, 16, 82] }
+        },
+        "400": { "$value": { "colorSpace": "hsl", "components": [30, 9, 46] } },
+        "600": {
+          "$value": { "colorSpace": "hsl", "components": [28, 12, 28] }
+        },
+        "800": {
+          "$value": { "colorSpace": "hsl", "components": [24, 18, 15] }
+        },
+        "900": { "$value": { "colorSpace": "hsl", "components": [22, 22, 9] } },
+        "950": { "$value": { "colorSpace": "hsl", "components": [20, 24, 6] } }
+      },
+      "crimson": {
+        "50": {
+          "$value": { "colorSpace": "hsl", "components": [340, 100, 97] }
+        },
+        "100": {
+          "$value": { "colorSpace": "hsl", "components": [341, 91, 93] }
+        },
+        "500": {
+          "$value": { "colorSpace": "hsl", "components": [343, 78, 47] }
+        },
+        "600": {
+          "$value": { "colorSpace": "hsl", "components": [344, 82, 39] }
+        },
+        "700": {
+          "$value": { "colorSpace": "hsl", "components": [344, 82, 32] }
+        },
+        "800": {
+          "$value": { "colorSpace": "hsl", "components": [343, 76, 27] }
+        }
+      },
+      "emerald": {
+        "50": {
+          "$value": { "colorSpace": "hsl", "components": [151, 81, 96] }
+        },
+        "100": {
+          "$value": { "colorSpace": "hsl", "components": [149, 80, 90] }
+        },
+        "600": {
+          "$value": { "colorSpace": "hsl", "components": [160, 84, 29] }
+        },
+        "800": {
+          "$value": { "colorSpace": "hsl", "components": [163, 88, 20] }
+        }
+      },
+      "gold": {
+        "50": {
+          "$value": { "colorSpace": "hsl", "components": [52, 100, 96] }
+        },
+        "100": {
+          "$value": { "colorSpace": "hsl", "components": [51, 96, 88] }
+        },
+        "600": {
+          "$value": { "colorSpace": "hsl", "components": [38, 92, 43] }
+        },
+        "800": { "$value": { "colorSpace": "hsl", "components": [32, 86, 28] } }
+      },
+      "teal": {
+        "50": {
+          "$value": { "colorSpace": "hsl", "components": [166, 76, 97] }
+        },
+        "100": {
+          "$value": { "colorSpace": "hsl", "components": [167, 85, 89] }
+        },
+        "700": {
+          "$value": { "colorSpace": "hsl", "components": [173, 80, 29] }
+        },
+        "900": {
+          "$value": { "colorSpace": "hsl", "components": [176, 84, 17] }
+        }
+      },
+      "scrim": {
+        "$value": {
+          "colorSpace": "hsl",
+          "components": [20, 24, 6],
+          "alpha": 0.64
+        }
+      },
+      "shadow": {
+        "$value": {
+          "colorSpace": "hsl",
+          "components": [271, 72, 22],
+          "alpha": 0.18
+        }
+      }
+    },
+    "font": {
+      "family": {
+        "$type": "fontFamily",
+        "body": { "$value": ["Trebuchet MS", "Arial", "sans-serif"] },
+        "display": { "$value": ["Georgia", "Times New Roman", "serif"] },
+        "mono": { "$value": ["IBM Plex Mono", "Consolas", "monospace"] }
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "regular": { "$value": 400 },
+        "medium": { "$value": 500 },
+        "semibold": { "$value": 600 },
+        "bold": { "$value": 700 }
+      },
+      "size": {
+        "$type": "dimension",
+        "xs": { "$value": { "value": 12, "unit": "px" } },
+        "sm": { "$value": { "value": 14, "unit": "px" } },
+        "md": { "$value": { "value": 16, "unit": "px" } },
+        "lg": { "$value": { "value": 19, "unit": "px" } },
+        "xl": { "$value": { "value": 26, "unit": "px" } },
+        "2xl": { "$value": { "value": 36, "unit": "px" } }
+      },
+      "lineHeight": {
+        "$type": "number",
+        "tight": { "$value": 1.15 },
+        "body": { "$value": 1.55 },
+        "relaxed": { "$value": 1.7 }
+      }
+    },
+    "space": {
+      "$type": "dimension",
+      "0": { "$value": { "value": 0, "unit": "px" } },
+      "1": { "$value": { "value": 4, "unit": "px" } },
+      "2": { "$value": { "value": 8, "unit": "px" } },
+      "3": { "$value": { "value": 12, "unit": "px" } },
+      "4": { "$value": { "value": 16, "unit": "px" } },
+      "5": { "$value": { "value": 20, "unit": "px" } },
+      "6": { "$value": { "value": 24, "unit": "px" } },
+      "8": { "$value": { "value": 32, "unit": "px" } },
+      "10": { "$value": { "value": 40, "unit": "px" } },
+      "12": { "$value": { "value": 48, "unit": "px" } }
+    },
+    "size": {
+      "$type": "dimension",
+      "8": { "$value": { "value": 32, "unit": "px" } },
+      "9": { "$value": { "value": 36, "unit": "px" } },
+      "10": { "$value": { "value": 40, "unit": "px" } },
+      "12": { "$value": { "value": 48, "unit": "px" } },
+      "14": { "$value": { "value": 56, "unit": "px" } },
+      "iconSm": { "$value": { "value": 16, "unit": "px" } },
+      "iconMd": { "$value": { "value": 20, "unit": "px" } },
+      "iconLg": { "$value": { "value": 24, "unit": "px" } }
+    },
+    "radius": {
+      "$type": "dimension",
+      "none": { "$value": { "value": 0, "unit": "px" } },
+      "sm": { "$value": { "value": 1, "unit": "px" } },
+      "md": { "$value": { "value": 4, "unit": "px" } },
+      "lg": { "$value": { "value": 8, "unit": "px" } },
+      "xl": { "$value": { "value": 12, "unit": "px" } },
+      "full": { "$value": { "value": 999, "unit": "px" } }
+    },
+    "border": {
+      "$type": "dimension",
+      "thin": { "$value": { "value": 1, "unit": "px" } },
+      "strong": { "$value": { "value": 2, "unit": "px" } },
+      "focus": { "$value": { "value": 2, "unit": "px" } }
+    },
+    "motion": {
+      "duration": {
+        "$type": "duration",
+        "fast": { "$value": { "value": 80, "unit": "ms" } },
+        "normal": { "$value": { "value": 150, "unit": "ms" } },
+        "slow": { "$value": { "value": 360, "unit": "ms" } },
+        "none": { "$value": { "value": 0, "unit": "ms" } }
+      },
+      "easing": {
+        "$type": "cubicBezier",
+        "standard": { "$value": [0.4, 0, 0.2, 1] },
+        "emphasized": { "$value": [0.34, 1.56, 0.64, 1] }
+      }
+    },
+    "opacity": {
+      "$type": "number",
+      "disabled": { "$value": 0.42 },
+      "muted": { "$value": 0.68 }
+    },
+    "shadow": {
+      "$type": "shadow",
+      "surface": {
+        "$value": {
+          "color": "{primitive.color.shadow}",
+          "offsetX": { "value": 2, "unit": "px" },
+          "offsetY": { "value": 2, "unit": "px" },
+          "blur": { "value": 0, "unit": "px" },
+          "spread": { "value": 0, "unit": "px" }
+        }
+      },
+      "overlay": {
+        "$value": {
+          "color": "{primitive.color.shadow}",
+          "offsetX": { "value": 6, "unit": "px" },
+          "offsetY": { "value": 8, "unit": "px" },
+          "blur": { "value": 0, "unit": "px" },
+          "spread": { "value": 0, "unit": "px" }
+        }
+      }
+    }
+  }
+}

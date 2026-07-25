@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": [
+    "packages/knowledge/src/contracts/patterns.json",
+    "docs/patterns/filter-query-results.md"
+  ],
+  "patterns": [
+    {
+      "id": "access-management",
+      "name": "Access management",
+      "form": "coded",
+      "status": "beta",
+      "package": "@relay/product-access",
+      "export": "AccessManagementPage",
+      "purpose": "Manage workspace invitations, roles, selection, permissions, mutation progress, and failure recovery.",
+      "ingredients": [
+        "AccessManagementPage",
+        "application query and mutation container"
+      ],
+      "applicationOwns": [
+        "HTTP API",
+        "cache",
+        "authorization",
+        "optimistic updates",
+        "rollback",
+        "routing"
+      ],
+      "decisionRules": [
+        "Use the coded composition when access roles and member-management anatomy match the contract.",
+        "Create a separate product composition when domain anatomy or workflow differs substantially."
+      ],
+      "example": "examples/access-management.tsx"
+    },
+    {
+      "id": "filter-query-results",
+      "name": "Filter, query, and result states",
+      "form": "recipe",
+      "status": "guidance",
+      "documentation": "docs/patterns/filter-query-results.md",
+      "purpose": "Combine query input, bounded filters, result state, stale-data messaging, retry, and permission-aware actions.",
+      "ingredients": [
+        "TextField",
+        "Checkbox",
+        "Stack",
+        "StatePanel",
+        "DataTable or semantic list"
+      ],
+      "applicationOwns": [
+        "URL synchronization",
+        "request cancellation",
+        "debouncing",
+        "filter semantics",
+        "permissions",
+        "server querying"
+      ],
+      "decisionRules": [
+        "Use local filtering for small in-memory collections.",
+        "Debounce and cancel server-backed queries.",
+        "Distinguish empty data from criteria-driven no-results.",
+        "Keep this as a recipe because products vary in query syntax, URL state, result layout, and mobile anatomy."
+      ],
+      "example": "examples/data-table.tsx"
+    }
+  ]
+}

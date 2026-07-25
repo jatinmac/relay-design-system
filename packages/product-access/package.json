@@ -1,0 +1,49 @@
+{
+  "name": "@relay/product-access",
+  "version": "0.0.0",
+  "description": "Access-management product compositions for Relay",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@relay/react": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@relay/tooling": "workspace:*",
+    "@relay/tokens": "workspace:*",
+    "@testing-library/jest-dom": "7.0.0",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/node": "26.1.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.4",
+    "jsdom": "29.1.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "typescript": "6.0.3",
+    "vite": "8.1.5",
+    "vitest": "4.1.10"
+  }
+}

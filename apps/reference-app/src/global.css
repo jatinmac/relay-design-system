@@ -1,0 +1,14 @@
+html {
+  background: var(--ds-color-background-canvas);
+}
+
+body {
+  margin: 0;
+  min-inline-size: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}

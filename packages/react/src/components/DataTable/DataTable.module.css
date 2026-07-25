@@ -1,0 +1,189 @@
+@layer components {
+  .root {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ds-space-layout-sm);
+    min-inline-size: 0;
+  }
+
+  .refreshing {
+    align-items: center;
+    color: var(--ds-color-text-secondary);
+    display: inline-flex;
+    font-size: var(--ds-font-size-body-sm);
+    gap: var(--ds-space-layout-xs);
+    justify-content: flex-end;
+  }
+
+  .refreshingSpinner {
+    animation: data-table-spin var(--ds-motion-duration-slow)
+      var(--ds-motion-easing-standard) infinite;
+    block-size: var(--ds-size-icon-sm);
+    border-color: var(--ds-color-border-default);
+    border-inline-end-color: var(--ds-color-action-primary-background-default);
+    border-radius: var(--ds-radius-pill);
+    border-style: solid;
+    border-width: var(--ds-border-width-default);
+    inline-size: var(--ds-size-icon-sm);
+  }
+
+  .scroller {
+    background: var(--ds-color-background-surface);
+    border-color: var(--ds-color-table-border);
+    border-radius: var(--ds-radius-surface);
+    border-style: solid;
+    border-width: var(--ds-border-width-default);
+    box-shadow: var(--ds-shadow-surface);
+    max-inline-size: 100%;
+    overflow: auto;
+  }
+
+  .scroller:focus-visible {
+    outline: var(--ds-border-width-focus) solid var(--ds-color-border-focus);
+    outline-offset: var(--ds-border-width-default);
+  }
+
+  .table {
+    border-collapse: collapse;
+    color: var(--ds-color-text-primary);
+    font-size: var(--ds-font-size-body-md);
+    inline-size: 100%;
+    line-height: var(--ds-font-line-height-body);
+  }
+
+  .table th,
+  .table td {
+    border-block-end-color: var(--ds-color-table-border);
+    border-block-end-style: solid;
+    border-block-end-width: var(--ds-border-width-default);
+    min-inline-size: calc(var(--ds-size-control-lg) * 2);
+    overflow-wrap: anywhere;
+    padding-block: var(--ds-space-layout-sm);
+    padding-inline: var(--ds-space-control-inline);
+    vertical-align: middle;
+  }
+
+  .table thead th {
+    background: var(--ds-color-table-header);
+    color: var(--ds-color-text-secondary);
+    font-size: var(--ds-font-size-label-md);
+    font-weight: var(--ds-font-weight-semibold);
+    position: sticky;
+    inset-block-start: 0;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  .table tbody th {
+    font-weight: var(--ds-font-weight-medium);
+    min-inline-size: calc(var(--ds-size-control-lg) * 3);
+  }
+
+  .table tbody td {
+    overflow-wrap: break-word;
+  }
+
+  .table tbody tr:hover {
+    background: var(--ds-color-table-row-hover);
+  }
+
+  .table tbody tr {
+    transition: background-color var(--ds-motion-duration-fast)
+      var(--ds-motion-easing-standard);
+  }
+
+  .table tbody tr[data-selected] {
+    background: var(--ds-color-table-row-selected);
+  }
+
+  .table tbody tr:last-child > * {
+    border-block-end-width: 0;
+  }
+
+  .align-start {
+    text-align: start;
+  }
+
+  .align-center {
+    text-align: center;
+  }
+
+  .align-end {
+    text-align: end;
+  }
+
+  .selectionCell,
+  .actionsCell {
+    inline-size: var(--ds-size-control-lg);
+    min-inline-size: var(--ds-size-control-lg);
+    padding-inline: var(--ds-space-layout-sm);
+    white-space: nowrap;
+  }
+
+  .actionsCell {
+    text-align: end;
+  }
+
+  .sortButton {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    gap: var(--ds-space-layout-xs);
+    margin: calc(var(--ds-space-layout-xs) * -1);
+    max-inline-size: 100%;
+    padding: var(--ds-space-layout-xs);
+    border-radius: var(--ds-radius-control);
+    text-align: inherit;
+    transition:
+      background-color var(--ds-motion-duration-fast)
+        var(--ds-motion-easing-standard),
+      color var(--ds-motion-duration-fast) var(--ds-motion-easing-standard);
+  }
+
+  .sortButton:disabled {
+    cursor: default;
+  }
+
+  .sortButton:hover:not(:disabled) {
+    background: var(--ds-color-table-row-hover);
+    color: var(--ds-color-text-primary);
+  }
+
+  .sortIndicator {
+    color: var(--ds-color-text-secondary);
+    flex: none;
+  }
+
+  .visuallyHidden {
+    block-size: var(--ds-border-width-default);
+    clip-path: inset(50%);
+    inline-size: var(--ds-border-width-default);
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  @keyframes data-table-spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @container (inline-size < 30rem) {
+    .table th,
+    .table td {
+      padding-inline: var(--ds-space-layout-sm);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .refreshingSpinner {
+      animation: none;
+    }
+  }
+}

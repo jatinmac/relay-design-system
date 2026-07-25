@@ -1,0 +1,9 @@
+{
+  "extends": "@relay/tooling/typescript/base.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*.ts"]
+}

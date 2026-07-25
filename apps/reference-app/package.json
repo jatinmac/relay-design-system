@@ -1,0 +1,38 @@
+{
+  "name": "@relay/reference-app",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Relay production-state and API integration demonstration",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --host 127.0.0.1",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@relay/product-access": "workspace:*",
+    "@relay/react": "workspace:*",
+    "@relay/theme-northstar": "workspace:*",
+    "@relay/theme-relay": "workspace:*",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "swr": "2.4.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1",
+    "@relay/tooling": "workspace:*",
+    "@testing-library/jest-dom": "7.0.0",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.4",
+    "jsdom": "29.1.1",
+    "typescript": "6.0.3",
+    "vite": "8.1.5",
+    "vitest": "4.1.10"
+  }
+}
