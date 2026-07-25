@@ -1,6 +1,6 @@
 {
   "name": "@relay/theme-northstar",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Northstar validation brand implementation of the semantic token contract",
   "license": "MIT",
   "type": "module",
