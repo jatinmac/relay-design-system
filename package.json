@@ -23,6 +23,7 @@
     "storybook": "pnpm --filter @relay/storybook storybook",
     "test": "turbo run test",
     "test:e2e": "turbo run test:e2e",
+    "test:e2e:ci": "pnpm --filter @relay/reference-app exec playwright test e2e/access-management.spec.ts",
     "test:storybook": "pnpm --filter @relay/storybook test:storybook",
     "tokens:build": "turbo run build --filter=@relay/theme-relay --filter=@relay/theme-northstar",
     "tokens:check": "pnpm --filter @relay/tokens check",

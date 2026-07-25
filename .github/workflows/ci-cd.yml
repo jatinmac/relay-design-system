@@ -64,20 +64,8 @@ jobs:
       - name: Run unit, interaction, and accessibility tests
         run: pnpm test
 
-      - name: Run Playwright workflows
-        run: pnpm test:e2e
-
-      - name: Upload Playwright failure diagnostics
-        if: failure()
-        uses: actions/upload-artifact@v7
-        with:
-          name: playwright-failure-${{ github.run_attempt }}
-          path: |
-            apps/reference-app/playwright-report
-            apps/reference-app/test-results
-            apps/reference-app/e2e/__screenshots__/*-linux.png
-          if-no-files-found: warn
-          retention-days: 7
+      - name: Run behavioral Playwright workflows
+        run: pnpm test:e2e:ci
 
       - name: Build packages and applications
         run: pnpm build
