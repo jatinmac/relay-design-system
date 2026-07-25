@@ -23,12 +23,14 @@ test('covers loading, empty, request error, long content, and permissions', asyn
 }) => {
   const browserErrors = monitorBrowserErrors(page);
   await page.goto('/');
+  const scenario = page.getByLabel('Scenario');
+  await scenario.selectOption('loading');
   await expect(page.getByRole('status')).toContainText('Loading data');
+  await scenario.selectOption('success');
   await expect(
     page.getByRole('table', { name: 'Workspace members' }),
   ).toBeVisible();
 
-  const scenario = page.getByLabel('Scenario');
   await scenario.selectOption('empty');
   await expect(page.getByText('No data available')).toBeVisible();
 
