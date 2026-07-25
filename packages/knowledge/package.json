@@ -1,6 +1,6 @@
 {
   "name": "@relay/knowledge",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Generated AI-readable Relay contracts and examples",
   "license": "MIT",
   "type": "module",
